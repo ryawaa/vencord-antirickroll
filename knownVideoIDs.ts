@@ -53,7 +53,6 @@ export const knownVideoIds = [
     "VgojnNgmgVs", // Beats 2 and 4 are switched
     "5wOXc03RwVA", // Sung by a cat
     "2xx_2XNxxfA", // Lofi.
-    "2xx_2XNxxfA", // Lofi.
     "lpiB2wMc49g", // Made anime 
     "H8ZH_mkfPUY", // Rebooted
     "Svj1bZz2mXw", // Lyrics in alphabetical order
