@@ -51,6 +51,6 @@ export const knownVideoIds = [
     "lXMskKTw3Bc", // Nice singing bro
     "7z_1E8VGJOw", // Lyrics are Roblox usernames
     "VgojnNgmgVs", // Beats 2 and 4 are switched
-    "5wOXc03RwVA" // Sung by a cat
+    "5wOXc03RwVA", // Sung by a cat
     "2xx_2XNxxfA" // Lofi.
 ];
