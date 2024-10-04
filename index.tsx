@@ -9,9 +9,8 @@ import { definePluginSettings } from "@api/Settings";
 import { getUserSettingLazy } from "@api/UserSettings";
 import ErrorBoundary from "@components/ErrorBoundary";
 import definePlugin, { OptionType } from "@utils/types";
-import { Text } from "@webpack/common";
+import { React, Text } from "@webpack/common";
 import type { Message } from "discord-types/general";
-import React from "react";
 
 import { knownHosts } from "./knownHosts";
 import { knownVideoIds } from "./knownVideoIDs";
