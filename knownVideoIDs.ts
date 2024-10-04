@@ -57,7 +57,6 @@ export const knownVideoIds = [
     "H8ZH_mkfPUY", // Rebooted
     "Svj1bZz2mXw", // Lyrics in alphabetical order
     "iik25wqIuFo", // DIfferent link
-    "hvL1339luv0", //A cat sings it
-    "N9w1lCZfaWI", //Gamecube version
-];
+    "hvL1339luv0", // A cat sings it
+    "N9w1lCZfaWI", // Gamecube version
 ];
