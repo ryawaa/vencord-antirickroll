@@ -7,6 +7,8 @@
 export const knownVideoIds = [
     "dQw4w9WgXcQ", // The original
     "oHg5SJYRHA0", // In case they know that link
+    "p7YXXieghto", // But with a different link
+    "E4WlUXrJgy4", // Yet another alt link
     "6_b7RDuLwcI", // Lyrics
     "G8iEMVr7GFg", // Otamatone (favorite)
     "AyOqGRjVtls", // Kermit
@@ -59,4 +61,5 @@ export const knownVideoIds = [
     "iik25wqIuFo", // DIfferent link
     "hvL1339luv0", // A cat sings it
     "N9w1lCZfaWI", // Gamecube version
+    "ivV-kssG3NI", // Kasane Teto
 ];
