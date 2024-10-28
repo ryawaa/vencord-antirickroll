@@ -4,4 +4,4 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-export const knownHosts = ["rickroll.link", "rickrolled.fr"];
+export const knownHosts = ["rickroll.link", "rickrolled.fr", "my-cool-app.com"];
