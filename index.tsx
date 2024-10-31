@@ -14,21 +14,25 @@ import type { Message } from "discord-types/general";
 
 import { knownHosts } from "./knownHosts";
 import { knownVideoIds } from "./knownVideoIDs";
-const MessageDisplayCompact = getUserSettingLazy("textAndImages", "messageDisplayCompact")!;
+const MessageDisplayCompact = getUserSettingLazy(
+    "textAndImages",
+    "messageDisplayCompact"
+)!;
 
 const settings = definePluginSettings({
     customLinks: {
         description: "Custom links to check for (separated by commas)",
         type: OptionType.STRING,
         default: "",
-        restartNeeded: true
+        restartNeeded: true,
     },
     customVideoIds: {
-        description: "Custom YouTube video IDs to check for (separated by commas)",
+        description:
+            "Custom YouTube video IDs to check for (separated by commas)",
         type: OptionType.STRING,
         default: "",
-        restartNeeded: true
-    }
+        restartNeeded: true,
+    },
 });
 
 function isPotentialRickroll(url: string): boolean {
@@ -36,10 +40,16 @@ function isPotentialRickroll(url: string): boolean {
         const parsedUrl = new URL(url);
         const hostname = parsedUrl.hostname.replace("www.", "");
 
-        const customLinks = settings.store.customLinks.split(",").map(s => s.trim()).filter(Boolean);
-        const customVideoIDs = settings.store.customVideoIds.split(",").map(s => s.trim()).filter(Boolean);
+        const customLinks = settings.store.customLinks
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
+        const customVideoIDs = settings.store.customVideoIds
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
 
-        if (customLinks.some(link => parsedUrl.href.includes(link))) {
+        if (customLinks.some((link) => parsedUrl.href.includes(link))) {
             return true;
         }
 
@@ -47,7 +57,10 @@ function isPotentialRickroll(url: string): boolean {
             let videoID = "";
 
             if (hostname === "youtube.com") {
-                videoID = parsedUrl.searchParams.get("v") || "";
+                videoID =
+                    parsedUrl.searchParams.get("v") ||
+                    parsedUrl.searchParams.get("V") ||
+                    "";
             } else if (hostname === "youtu.be") {
                 videoID = parsedUrl.pathname.slice(1);
             }
@@ -62,7 +75,6 @@ function isPotentialRickroll(url: string): boolean {
         if (knownHosts.includes(hostname)) {
             return true;
         }
-
     } catch (e) {
         // Invalid URL, ignore :trolley:
     }
@@ -92,7 +104,7 @@ function extractUrls(content: string): string[] {
     return urls;
 }
 
-function RickrollWarningAccessory({ message }: { message: Message; }) {
+function RickrollWarningAccessory({ message }: { message: Message }) {
     const urls = extractUrls(message.content);
     if (urls.length === 0) return null;
 
@@ -113,10 +125,16 @@ function RickrollWarningAccessory({ message }: { message: Message; }) {
 function isCustomRickroll(url: string): boolean {
     try {
         const parsedUrl = new URL(url);
-        const customLinks = settings.store.customLinks.split(",").map(s => s.trim()).filter(Boolean);
-        const customVideoIDs = settings.store.customVideoIds.split(",").map(s => s.trim()).filter(Boolean);
+        const customLinks = settings.store.customLinks
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
+        const customVideoIDs = settings.store.customVideoIds
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
 
-        if (customLinks.some(link => parsedUrl.href.includes(link))) {
+        if (customLinks.some((link) => parsedUrl.href.includes(link))) {
             return true;
         }
 
@@ -139,33 +157,48 @@ function isCustomRickroll(url: string): boolean {
     return false;
 }
 
-function RickrollWarning({ message, isCustom }: { message: Message; isCustom: boolean; }) {
+function RickrollWarning({
+    message,
+    isCustom,
+}: {
+    message: Message;
+    isCustom: boolean;
+}) {
     const compact = MessageDisplayCompact.useSetting();
 
     return (
         <div>
             <Text color="text-danger" variant="text-xs/semibold">
-                ⚠️ This link is {isCustom ? "matching one of your filters for rickrolls." : "a known rickroll."}
+                ⚠️ This link is{" "}
+                {isCustom
+                    ? "matching one of your filters for rickrolls."
+                    : "a known rickroll."}
             </Text>
-
         </div>
     );
 }
 
 export default definePlugin({
     name: "AntiRickroll",
-    description: "Warns you of potential Rickrolls in messages, including masked links (supports custom rules)",
+    description:
+        "Warns you of potential Rickrolls in messages, including masked links (supports custom rules)",
     authors: [{ name: "ryanamay", id: 1262793452236570667n }],
     dependencies: ["MessageAccessoriesAPI", "UserSettingsAPI"],
 
     settings,
 
     start() {
-        addAccessory("rickrollWarning", (props: Record<string, any>) => {
-            return (
-                <RickrollWarningAccessory message={props.message as Message} />
-            );
-        }, 4);
+        addAccessory(
+            "rickrollWarning",
+            (props: Record<string, any>) => {
+                return (
+                    <RickrollWarningAccessory
+                        message={props.message as Message}
+                    />
+                );
+            },
+            4
+        );
     },
 
     stop() {
