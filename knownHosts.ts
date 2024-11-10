@@ -7,6 +7,7 @@
 export const knownHosts = [
     "rickroll.link",
     "rickrolled.fr",
+    "dub.sh/MetropolisOffline",
     "my-cool-app.com",
     "1227.com",
     "203.24.182.170",
@@ -72,6 +73,7 @@ export const knownHosts = [
     "technocolbert.co.nr",
     "techsmartly.net",
     "thekickback.com/rickroll/rickroll.php",
+    "tinyurl.com/interfont,
     "tinyurl.com/244u3n",
     "tinyurl.com/2nmscj",
     "tinyurl.com/2tcnbl",
