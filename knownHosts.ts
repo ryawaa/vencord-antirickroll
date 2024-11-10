@@ -5,6 +5,7 @@
  */
 
 export const knownHosts = [
+    
     "rickroll.link",
     "rickrolled.fr",
     "my-cool-app.com",
@@ -72,6 +73,7 @@ export const knownHosts = [
     "technocolbert.co.nr",
     "techsmartly.net",
     "thekickback.com/rickroll/rickroll.php",
+    "tinyurl.com/interfont,
     "tinyurl.com/244u3n",
     "tinyurl.com/2nmscj",
     "tinyurl.com/2tcnbl",
