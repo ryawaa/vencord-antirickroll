@@ -5,9 +5,9 @@
  */
 
 export const knownHosts = [
-    
     "rickroll.link",
     "rickrolled.fr",
+    "dub.sh/MetropolisOffline",
     "my-cool-app.com",
     "1227.com",
     "203.24.182.170",
