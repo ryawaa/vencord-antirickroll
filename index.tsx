@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { addAccessory, removeAccessory } from "@api/MessageAccessories";
+import { addMessageAccessory, removeMessageAccessory } from "@api/MessageAccessories";
 import { definePluginSettings } from "@api/Settings";
 import { getUserSettingLazy } from "@api/UserSettings";
 import ErrorBoundary from "@components/ErrorBoundary";
@@ -188,7 +188,7 @@ export default definePlugin({
     settings,
 
     start() {
-        addAccessory(
+        addMessageAccessory(
             "rickrollWarning",
             (props: Record<string, any>) => {
                 return (
@@ -202,6 +202,6 @@ export default definePlugin({
     },
 
     stop() {
-        removeAccessory("rickrollWarning");
+        removeMessageAccessory("rickrollWarning");
     },
 });
